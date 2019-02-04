@@ -35,12 +35,9 @@ export default {
   },
   computed: {
     score() {
-      if(this.password.length === 0) {
-        return 0;
-      }
-      else {
-        return zxcvbn(this.password).score + 1;
-      }
+      let score = this.password.length === 0 ? 0 : zxcvbn(this.password).score + 1;
+      this.$emit('update:score', score);
+      return score;
     }
   }
 };
