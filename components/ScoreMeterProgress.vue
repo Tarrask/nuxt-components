@@ -66,7 +66,7 @@ export default {
     .score-inner {
       height: 10px;
       color: red;
-      transition: width 0.2s ease-out, background 10.5s ease-out;
+      transition: width 0.2s ease-out, background 0.5s ease-out;
     }
     &.shadow {
       box-shadow: 0 -10px 10px -10px inset rgba(0,0,0,0.3);

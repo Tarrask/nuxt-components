@@ -1,8 +1,7 @@
 <template>
   <button
     :type="type"
-    class="btn"
-    :class="`btn-${currentVariant}`"
+    :class="[ baseClass, currentClass ]"
     :disabled="!ready"
     @click.prevent="$emit('click')"
   >
@@ -16,9 +15,9 @@
       <fa-icon name="spinner" spin></fa-icon> {{ pendingLabel || label }}
     </template>
     <template v-else>
-     <fa-icon v-if="icon" :name="icon"></fa-icon> {{ label }}
-   </template>
- </button>
+      <fa-icon v-if="icon" :name="icon"></fa-icon> {{ label }}
+    </template>
+  </button>
 </template>
 
 <doc>
@@ -44,16 +43,60 @@ const SUCCESS = "SUCCESS";
 const ERROR = "ERROR";
 
 export { READY, PENDING, SUCCESS, ERROR };
+
+/**
+ * SubmitButton is a smart button that can change state, for exemple during
+ * a xhr request.
+ */
 export default {
   components: { 'fa-icon': Icon },
   props: {
+    /**
+     * The type of button, submit, reset, button
+     * Default to submit
+     */
     'type': {
       type: String,
       default: 'submit'
     },
-    'variant': {
+    /**
+     * The base class of the button, by default 'btn' to fit bootstrap class
+     */
+    'baseClass': {
       type: String,
-      default: 'primary'
+      default: 'btn'
+    },
+    /**
+     * The additionnal class of the button when it is in READY state.
+     * Default to btn-primary
+     */
+    'readyClass': {
+      type: String,
+      default: 'btn-primary'
+    },
+    /**
+     * The additionnal class of the button when it is in PENDING state.
+     * Default to btn-primary
+     */
+    'pendingClass': {
+      type: String,
+      default: 'btn-primary'
+    },
+    /**
+     * The additionnal class of the button when it is in SUCCESS state.
+     * Default to btn-success
+     */
+    'successClass': {
+      type: String,
+      default: 'btn-success'
+    },
+    /**
+     *  The additionnal class of the button when it is in ERROR state.
+     * Default to btn-danger
+     */
+    'errorClass': {
+      type: String,
+      default: 'btn-danger'
     },
     'icon': {
       type: String
@@ -80,15 +123,12 @@ export default {
     pending() { return this.status === PENDING },
     success() { return this.status === SUCCESS },
     error() { return this.status === ERROR },
-    currentVariant() {
-      if(this.success) {
-        return 'success';
-      }
-      else if(this.error) {
-        return 'danger';
-      }
-      else {
-        return this.variant;
+    currentClass() {
+      switch(this.status) {
+        case READY: return this.readyClass;
+        case PENDING: return this.pendingClass;
+        case SUCCESS: return this.successClass;
+        case ERROR: return this.errorClass;
       }
     }
   },
