@@ -99,18 +99,28 @@ export default {
       default: 'btn-danger'
     },
     'icon': {
-      type: String
+      type: String,
+      default: undefined
     },
     'label': {
       type: String,
       required: true
     },
-    'pendingLabel': String,
-    'successLabel': String,
-    'errorLabel': String,
+    'pendingLabel': {
+      type: String,
+      default: undefined
+    },
+    'successLabel': {
+      type: String,
+      default: undefined
+    },
+    'errorLabel': {
+      type: String,
+      default: undefined
+    },
     'status': {
       type: String, // one of [READY, PENDING, SUCCESS, ERROR]
-      require: true
+      required: true
     }
   },
   data() {
