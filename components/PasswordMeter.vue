@@ -1,5 +1,5 @@
 <template lang="html">
-  <component :is="types[type]" :score="score" v-bind="$attrs"></component>
+  <component :is="types[type]" :score="score.score + 1" v-bind="$attrs"></component>
 </template>
 
 <script>
@@ -35,8 +35,8 @@ export default {
   },
   computed: {
     score() {
-      let score = this.password.length === 0 ? 0 : zxcvbn(this.password).score + 1;
-      this.$emit('update:score', score);
+      let score = this.password.length === 0 ? 0 : zxcvbn(this.password);
+      this.$emit('update:score', score.score + 1);
       return score;
     }
   }
