@@ -1,6 +1,5 @@
 <template>
-  <div
-    is="button"
+  <button
     :type="type"
     :class="[ baseClass, currentClass ]"
     :disabled="!ready"
@@ -18,7 +17,7 @@
     <template v-else>
       <fa-icon v-if="icon" :name="icon"></fa-icon> {{ label }}
     </template>
-  </div>
+  </button>
 </template>
 
 <doc>
