@@ -17,5 +17,28 @@ module.exports = {
     'vue'
   ],
   // add your custom rules here
-  rules: {}
+  rules: {
+    'brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
+    'keyword-spacing': ['error', {
+      after: true,
+      overrides: {
+        'catch': { after: false },
+        'if': { after: false },
+        'switch': { after: false }
+      }
+    }],
+    'linebreak-style': ["error", "unix"],
+    'no-unused-vars': "warn",
+    'semi': ['error', 'always'],
+    'space-before-function-paren': [
+      2,
+      {
+        anonymous: 'never',
+        named: 'never'
+      }
+    ],
+    'vue/html-self-closing': ['error', { html: { component: 'never', normal: "never" } }],
+    'vue/max-attributes-per-line': ['warn', { singleline: 3 }],
+    'vue/singleline-html-element-content-newline': 0
+  }
 }

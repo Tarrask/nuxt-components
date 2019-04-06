@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <div>
-      <app-logo/>
+      <app-logo></app-logo>
       <h1 class="title">
         nuxt-components
       </h1>
@@ -23,13 +23,13 @@
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
+import AppLogo from '~/components/AppLogo.vue';
 
 export default {
   components: {
     AppLogo
   }
-}
+};
 </script>
 
 <style>
@@ -62,4 +62,3 @@ export default {
   padding-top: 15px;
 }
 </style>
-

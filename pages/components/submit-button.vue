@@ -41,23 +41,23 @@ export default {
     <div class="row">
       <div class="col">
         <div class="form-group">
-          <input type="text" class="form-control" :disabled="disabled">
+          <input :disabled="disabled" type="text" class="form-control">
         </div>
       </div>
     </div>
     <submit-button
       :status="status1"
       label="Login"
-      pendingLabel="Logging in..."
-      successLabel="Logged in"
+      pending-label="Logging in..."
+      success-label="Logged in"
       @click="toggle1"
     >
     </submit-button>
     <submit-button
       :status="status2"
       label="Login"
-      pendingLabel="Logging in..."
-      errorLabel="Login failed"
+      pending-label="Logging in..."
+      error-label="Login failed"
       @click="toggle2"
     >
     </submit-button>
@@ -84,12 +84,12 @@ export default {
     toggle1() {
       this.status1 = Status.PENDING;
       this.status2 = Status.READY;
-      setTimeout(() => { this.status1 = Status.SUCCESS }, 1000);
+      setTimeout(() => { this.status1 = Status.SUCCESS; }, 1000);
     },
     toggle2() {
       this.status1 = Status.READY;
       this.status2 = Status.PENDING;
-      setTimeout(() => { this.status2 = Status.ERROR }, 1000);
+      setTimeout(() => { this.status2 = Status.ERROR; }, 1000);
     }
   }
 };

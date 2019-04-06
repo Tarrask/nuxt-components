@@ -1,5 +1,6 @@
 <template>
-  <button
+  <div
+    is="button"
     :type="type"
     :class="[ baseClass, currentClass ]"
     :disabled="!ready"
@@ -17,7 +18,7 @@
     <template v-else>
       <fa-icon v-if="icon" :name="icon"></fa-icon> {{ label }}
     </template>
-  </button>
+  </div>
 </template>
 
 <doc>
@@ -129,10 +130,10 @@ export default {
     };
   },
   computed: {
-    ready() { return this.status === READY },
-    pending() { return this.status === PENDING },
-    success() { return this.status === SUCCESS },
-    error() { return this.status === ERROR },
+    ready() { return this.status === READY; },
+    pending() { return this.status === PENDING; },
+    success() { return this.status === SUCCESS; },
+    error() { return this.status === ERROR; },
     currentClass() {
       switch(this.status) {
         case READY: return this.readyClass;
@@ -145,7 +146,7 @@ export default {
   watch: {
     status(val) {
       if(val === PENDING) {
-        this.pendingTimeout = setTimeout(() => { this.debouncedPending = true }, 200);
+        this.pendingTimeout = setTimeout(() => { this.debouncedPending = true; }, 200);
       }
       else {
         if(this.pendingTimeout) {
@@ -156,7 +157,7 @@ export default {
       }
     }
   }
-}
+};
 </script>
 
 <style>

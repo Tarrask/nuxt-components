@@ -1,15 +1,15 @@
 <template lang="html">
   <div class="score-container">
-    <div class="score" :class="{ shadow }">
+    <div :class="{ shadow }" class="score">
       <div
-        class="score-inner"
         :style="{
           'width': `${score / (count) * 100}%`,
           'background': color
         }"
+        class="score-inner"
       ></div>
     </div>
-    <div class="score_text" :style="{ 'color': colors[score] }">{{ texts[score] }}</div>
+    <div :style="{ 'color': colors[score] }" class="score_text">{{ texts[score] }}</div>
   </div>
 </template>
 

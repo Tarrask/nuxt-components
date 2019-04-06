@@ -1,9 +1,16 @@
 <template lang="html">
   <div class="score_container">
     <div v-for="(v, i) in count" :key="i" class="score">
-      <div class="score_inner" :class="{ active: score > i }" :style="{ 'background-color': colors[i+1] }"></div>
+      <div
+        :class="{ active: score > i }"
+        :style="{ 'background-color': colors[i+1] }"
+        class="score_inner"
+      ></div>
     </div>
-    <div class="score_text" :style="{ 'color': colors[score] }">{{ texts[score] }}</div>
+    <div
+      :style="{ 'color': colors[score] }"
+      class="score_text"
+    >{{ texts[score] }}</div>
   </div>
 </template>
 
