@@ -20,15 +20,6 @@
   </button>
 </template>
 
-<doc>
-Un bouton a utiliser lorsque de l'envoi d'un formulaire. Le bouton se désactive dès qu'il est utilisé, afin
-d'éviter les multiples clics. Il indique aussi une eventuelle erreur.
-
-```
-
-```
-</doc>
-
 <script>
 import Icon from 'vue-awesome/components/Icon.vue';
 
