@@ -22,7 +22,7 @@ export default {
     },
     'texts': {
       type: Array,
-      default() => [ 'very weak', 'weak', 'medium', 'strong', 'very strong' ]
+      default: () => [ 'very weak', 'weak', 'medium', 'strong', 'very strong' ]
     }
   },
   data() {
