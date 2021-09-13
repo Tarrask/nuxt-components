@@ -19,13 +19,16 @@ export default {
     'password': {
       type: String,
       default: ''
+    },
+    'texts': {
+      type: Array,
+      default() => [ 'very weak', 'weak', 'medium', 'strong', 'very strong' ]
     }
   },
   data() {
     return {
       count: 5,
       colors: [ 'crimson', 'orange', 'gold', 'limegreen', 'green' ],
-      texts: [ 'very weak', 'weak', 'medium', 'strong', 'very strong' ],
       types: {
         'bar': 'ScoreMeterBar',
         'progress': 'ScoreMeterProgress',
