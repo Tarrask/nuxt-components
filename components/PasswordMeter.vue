@@ -1,5 +1,5 @@
 <template lang="html">
-  <component :is="types[type]" :score="score.score + 1" v-bind="$attrs"></component>
+  <component :is="types[type]" :score="score.score + 1" :texts="texts" v-bind="$attrs"></component>
 </template>
 
 <script>
